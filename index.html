@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Check Indian Railway train status and PNR information">
+    <title>Train Status Checker</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.0.24/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-blue-600 text-white p-4">
+        <h1 class="text-center text-3xl font-bold">Indian Railway Status Checker</h1>
+    </header>
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-lg mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Check Train Status</h2>
+            <form id="trainForm" class="space-y-4">
+                <div>
+                    <label for="trainNumber" class="block text-gray-600 font-semibold mb-2">Enter Train Number</label>
+                    <input type="text" id="trainNumber" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" maxlength="5" placeholder="Enter Train Number" required>
+                </div>
+                <button type="submit" id="checkTrainStatus" class="w-full py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-colors">Check Train Status</button>
+            </form>
+            <div id="loading" class="hidden mt-6">
+                <div class="flex items-center justify-center space-x-2">
+                    <div class="animate-spin h-5 w-5 border-2 border-blue-600 rounded-full border-t-transparent"></div>
+                    <span class="text-gray-600">Fetching details...</span>
+                </div>
+            </div>
+            <div id="result" class="hidden mt-6 space-y-4">
+                <div class="bg-green-50 border-l-4 border-green-500 p-4">
+                    <h3 class="text-lg font-semibold text-green-800">Train Details</h3>
+                    <p id="trainDetails" class="text-gray-700"></p>
+                    <p id="trainLocation" class="text-gray-700"></p>
+                </div>
+            </div>
+            <div id="error" class="hidden mt-6 p-4 bg-red-50 border-l-4 border-red-500 text-red-700"></div>
+        </div>
+    </main>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
